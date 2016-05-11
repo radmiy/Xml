@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="PricedItineraries" type="PricedItinerariesType" />
+  <xsd:complexType name="PricedItinerariesType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="PricedItinerary" type="PricedItineraryType" />
+      <xsd:element name="TPA_Extension" type="TPA_Extension_PricedItineraries_Type" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TPA_Extension_PricedItineraries_Type">
+    <xsd:sequence>
+      <xsd:element name="FareTripType" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PricedItineraryType">
+    <xsd:sequence>
+      <xsd:element name="AirItinerary" type="AirItineraryType" />
+    </xsd:sequence>
+    <xsd:attribute name="NameValues" type="xsd:string" />
+    <xsd:attribute name="SequenceNumber" type="xsd:int" />
+    <xsd:attribute name="OriginDestinationRPH" type="xsd:int" />
+    <xsd:attribute name="PricedItineraryID" type="xsd:string" />
+  </xsd:complexType>
+  <xsd:complexType name="AirItineraryType">
+    <xsd:sequence>
+      <xsd:element name="OriginDestinationOptions" type="OriginDestinationOptionsType" />
+    </xsd:sequence>
+    <xsd:attribute name="NameValues" type="xsd:string" />
+    <xsd:attribute name="DirectionInd" type="xsd:string" />
+    <xsd:attribute name="TotalTravelTime" type="xsd:string" />
+  </xsd:complexType>
+  <xsd:complexType name="OriginDestinationOptionsType">
+    <xsd:sequence>
+      <xsd:element name="OriginDestinationOption" type="OriginDestinationOptionType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OriginDestinationOptionType">
+    <xsd:sequence>
+      <xsd:element name="FlightSegment" type="FlightSegmentType" />
+      <xsd:element name="TPA_Extension" type="TPA_Extension_OriginDestinationOption_Type" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TPA_Extension_OriginDestinationOption_Type">
+    <xsd:sequence>
+      <xsd:element name="OriginDestinationOptionAttributes" type="OriginDestinationOptionAttributesType" />
+      <xsd:element name="InventorySystem" type="InventorySystemType" />
+      <xsd:element name="AvailabilitySource" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InventorySystemType">
+    <xsd:attribute name="Name" type="xsd:string" />
+  </xsd:complexType>
+  <xsd:complexType name="OriginDestinationOptionAttributesType">
+    <xsd:attribute name="TotalTravelDuration" type="xsd:string" />
+    <xsd:attribute name="IndexKey" type="xsd:string" />
+    <xsd:attribute name="OriginDestinationOptionSequence" type="xsd:int" />
+  </xsd:complexType>
+  <xsd:complexType name="FlightSegmentType">
+    <xsd:sequence>
+      <xsd:element name="DepartureAirport" type="AirportType" />
+      <xsd:element name="ArrivalAirport" type="AirportType" />
+      <xsd:element name="OperatingAirline" type="OperatingAirlineType" />
+      <xsd:element name="Equipment" type="EquipmentType" />
+      <xsd:element name="MarketingAirline" type="MarketingAirlineType" />
+      <xsd:element name="Comment" type="xsd:string" />
+      <xsd:element name="TPA_Extension" type="TPA_Extension_FlightSegment_Type" />
+    </xsd:sequence>
+    <xsd:attribute name="DepartureDateTime" type="xsd:dateTime" />
+    <xsd:attribute name="ArrivalDateTime" type="xsd:dateTime" />
+    <xsd:attribute name="ResBookDesigCode" type="xsd:string" />
+    <xsd:attribute name="StopQuantity" type="xsd:int" />
+    <xsd:attribute name="RPH" type="xsd:int" />
+    <xsd:attribute name="FlightNumber" type="xsd:int" />
+    <xsd:attribute name="OnTimeRate" type="xsd:decimal" />
+  </xsd:complexType>
+  <xsd:complexType name="TPA_Extension_FlightSegment_Type">
+    <xsd:sequence>
+      <xsd:element name="FlightSegmentSupplementalInfo" type="FlightSegmentSupplementalInfoType" />
+      <xsd:element maxOccurs="unbounded" name="BookingClassAvailability" type="BookingClassAvailabilityType" />
+      <xsd:element name="EticketEligibility" type="xsd:string" />
+      <xsd:element maxOccurs="unbounded" name="AttributeSummaryReference" type="AttributeSummaryReferenceType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AttributeSummaryReferenceType">
+    <xsd:attribute name="AttributeValueCode" type="xsd:string" />
+    <xsd:attribute name="AttributeSummaryReferenceID" type="xsd:string" />
+  </xsd:complexType>
+  <xsd:complexType name="BookingClassAvailabilityType">
+    <xsd:attribute name="ResBookDesigCode" type="xsd:string" />
+    <xsd:attribute name="ResBookDesigQuantity" type="xsd:string" />
+    <xsd:attribute name="CabinCode" type="xsd:string" />
+    <xsd:attribute name="CabinDescription" type="xsd:string" />
+  </xsd:complexType>
+  <xsd:complexType name="FlightSegmentSupplementalInfoType">
+    <xsd:attribute name="DepartureTimeZoneOffset" type="xsd:string" />
+    <xsd:attribute name="ArrivalTimeZoneOffset" type="xsd:string" />
+    <xsd:attribute name="DifferentDayOfArrival" type="xsd:int" />
+    <xsd:attribute name="DayChangeIndDeparture" type="xsd:int" />
+    <xsd:attribute name="DayChangeIndArrival" type="xsd:int" />
+  </xsd:complexType>
+  <xsd:complexType name="MarketingAirlineType">
+    <xsd:attribute name="Code" type="xsd:string" />
+  </xsd:complexType>
+  <xsd:complexType name="EquipmentType">
+    <xsd:attribute name="AirEquipType" type="xsd:string" />
+    <xsd:attribute name="ChangeofGauge" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="OperatingAirlineType">
+    <xsd:attribute name="Code" type="xsd:string" />
+  </xsd:complexType>
+  <xsd:complexType name="AirportType">
+    <xsd:attribute name="LocationCode" type="xsd:string" />
+    <xsd:attribute name="CodeContext" type="xsd:string" />
+  </xsd:complexType>
+</xsd:schema>

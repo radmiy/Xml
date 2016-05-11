@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PricedItineraries>
+    <PricedItinerary NameValues="" SequenceNumber="0" OriginDestinationRPH="0" PricedItineraryID="">
+        <AirItinerary NameValues="" DirectionInd="" TotalTravelTime="">
+            <OriginDestinationOptions>
+                <OriginDestinationOption>
+                    <FlightSegment DepartureDateTime="2016-05-11T09:20:47.584+03:00" ArrivalDateTime="2016-05-11T09:20:47.584+03:00" ResBookDesigCode="" StopQuantity="0" RPH="0" FlightNumber="0" OnTimeRate="0">
+                        <DepartureAirport LocationCode="" CodeContext=""/>
+                        <ArrivalAirport LocationCode="" CodeContext=""/>
+                        <OperatingAirline Code=""/>
+                        <Equipment AirEquipType="" ChangeofGauge="false"/>
+                        <MarketingAirline Code=""/>
+                        <Comment></Comment>
+                        <TPA_Extension>
+                            <FlightSegmentSupplementalInfo DepartureTimeZoneOffset="" ArrivalTimeZoneOffset="" DifferentDayOfArrival="0" DayChangeIndDeparture="0" DayChangeIndArrival="0"/>
+                            <BookingClassAvailability ResBookDesigCode="" ResBookDesigQuantity="" CabinCode="" CabinDescription=""/>
+                            <EticketEligibility></EticketEligibility>
+                            <AttributeSummaryReference AttributeValueCode="" AttributeSummaryReferenceID=""/>
+                        </TPA_Extension>
+                    </FlightSegment>
+                    <TPA_Extension>
+                        <OriginDestinationOptionAttributes TotalTravelDuration="" IndexKey="" OriginDestinationOptionSequence="0"/>
+                        <InventorySystem Name=""/>
+                        <AvailabilitySource></AvailabilitySource>
+                    </TPA_Extension>
+                </OriginDestinationOption>
+            </OriginDestinationOptions>
+        </AirItinerary>
+    </PricedItinerary>
+    <TPA_Extension>
+        <FareTripType></FareTripType>
+    </TPA_Extension>
+</PricedItineraries>
